@@ -12,7 +12,7 @@ export function ChatLayout() {
   const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
-    // Initial welcome message
+
     setTimeout(() => {
       const welcomeMessage: Message = {
         id: crypto.randomUUID(),
@@ -35,7 +35,7 @@ export function ChatLayout() {
     setMessages((prev) => [...prev, userMessage]);
     setIsTyping(true);
 
-    // Check local logic first
+
     const localResponse = getBotResponse(content);
     if (localResponse) {
       setTimeout(() => {
@@ -47,7 +47,7 @@ export function ChatLayout() {
         };
         setMessages((prev) => [...prev, botMessage]);
         setIsTyping(false);
-      }, 600); // Small artificial delay for natural feel
+      }, 600);
       return;
     }
 
@@ -72,12 +72,12 @@ export function ChatLayout() {
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
       console.warn("API call failed, falling back to local logic:", error);
-      // Fallback
+
       setTimeout(() => {
         const botMessage: Message = {
           id: crypto.randomUUID(),
           role: 'bot',
-          content: "I’m still learning. Can you rephrase that?", // Default fallback
+          content: "I’m still learning. Can you rephrase that?",
           timestamp: new Date(),
         };
         setMessages((prev) => [...prev, botMessage]);
@@ -102,9 +102,10 @@ export function ChatLayout() {
       return "I can help you with general questions. What's on your mind?";
     }
     if (lowerInput.includes('joke')) {
-      return null; // Let the API handle jokes
+      return null;
+
     }
-    return null; // Let API handle everything else or fallback
+    return null;
   };
 
   return (

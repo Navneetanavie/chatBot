@@ -29,7 +29,7 @@ export function MessageList({ messages, isTyping }: MessageListProps) {
       {isTyping && (
         <div className="flex w-full items-end gap-3 p-4">
           <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-full border shadow-sm bg-black text-white dark:bg-white dark:text-black border-transparent">
-            {/* Robot icon or similar */}
+
             <div className="h-1.5 w-1.5 rounded-full bg-current animate-bounce [animation-delay:-0.3s]" />
             <div className="h-1.5 w-1.5 rounded-full bg-current animate-bounce [animation-delay:-0.15s] mx-0.5" />
             <div className="h-1.5 w-1.5 rounded-full bg-current animate-bounce" />
